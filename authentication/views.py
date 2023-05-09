@@ -13,21 +13,6 @@ from student import settings
 def home(request):
     return render(request, "authentication/index.html")
 
-def signin(request):
-    if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
-        ch1=Stud.objects.filter(sid=username)
-        pwd=ch1[0]
-        #messages.success(request, "Value= {%d} ".format(pwd))
-        if password==pwd:
-            return render(request, "authentication/index.html")
-        else:
-            messages.error(request, "Bad Credentials")
-            return redirect("signin")
-        
-    return render(request, "authentication/signin.html")
-
 def students(request):
     info=Stud.objects.all()
     data= {
@@ -36,29 +21,8 @@ def students(request):
 
     return render(request, "authentication/students.html",data)
 
-def signup(request):
-    if request.method == "POST":
-        
-        rno=request.POST['rno']
-        username = request.POST['username']
-        email = request.POST['email']
-        phone= request.POST['phone']
-        fname=request.POST['fname']
-        mname=request.POST['mname']
-        password = request.POST['password']
-        #conpwd = request.POST['conpwd']
-        
-        myuser = User.objects.create_user(username=username, email=email, password=password)
-        myuser.save()
-        
-        myuser1 = details(rno=rno, username=username, email=email, fname=fname, mname=mname, password=password)
-        myuser1.phone=int(phone)
-        myuser1.save()
-        
-        messages.success(request, "Successfully Registered")
-        return redirect('signin')
-        
-    return render(request ,"authentication/signup.html")
+
+
 def schedules(request):
     return render(request, "authentication/schedules.html")
 
@@ -74,7 +38,3 @@ def cal(request):
 def rule(request):
     return render(request, "authentication/rule.html")
 
-def signout(request):
-    logout(request)
-    messages.success(request,"Loged out Successfully")
-    return redirect('home')
