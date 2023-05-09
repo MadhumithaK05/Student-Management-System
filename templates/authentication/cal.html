@@ -16,6 +16,22 @@
           background-attachment: fixed;
           background-size: cover;
         }
+        .as{
+            width: 520px;
+            height: 220px;
+            color: #fff;
+            position: absolute;
+            box-sizing:border-box;
+            padding: 20px 60px;
+        }
+        .as a{
+            text-decoration: wavy;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .as a:hover{
+            color:#fff;
+        }
     </style>
 </head>
 <body>
@@ -41,35 +57,12 @@
           </div>
         </div>
       </nav><br><br>
-      <form>
-        <label>Marks</label>
-        <input type="number" name="mark" placeholder="Enter Mark">
-        <input type="button" name="calculate" onclick="show()" value="Calculate"><br>
-        <input type="text" name="gra" placeholder="Grade">
-      </form>
-      <div class="discrib">
-        <p>O - Outstanding</p>
-        <p>A+ - Excellent</p>
-        <p>A - Very Good</p>
-        <p>B+ - Good</p>
-        <p>B - Above Average</p>
-        <p>C - Average</p>
-        <p>F - Fail</p>
-      </div>
-      <script>
-        function show(){
-          var m=parseInt(document.getElementsByName('mark')[0].value);
-          var g='';
-        if(m>=90){g="O";}
-        else if (m>=80 && m<90){g="A+";}
-        else if(m>=70 && m<80){g="A";}
-        else if(m>=60 && m<70){g="B+";}
-        else if(m>=50 && m<60){g='B';}
-        else if(m>=45 && m<50){g='C';}
-        else if(m<45){g='F';}
-        document.getElementsByName('gra')[0].value=g;
-        }
-      </script>
-
+      <h1>Acadamic Schedule</h1><br>
+      <div class="as">
+      <p><a href="https://www.rajalakshmi.org/downloads/AC/REC-AC-2022-23-EVEN-UG.PDF" target="_blank">EVEN SEM - 2022-23 - Second, Third & Final Year</a></p>
+      <p><a href="https://www.rajalakshmi.org/downloads/AC/REC-AC-2022-23-EVEN-UG-IISem.PDF" target="_blank">EVEN SEM - 2022-23 - First Year</a></p>
+      <p><a href="https://www.rajalakshmi.org/downloads/AC/REC-AC-2022-23-ODD-UG-1.PDF" target="_blank">ODD SEM - 2022-23 - First Year</a></p>
+      <p><a href="https://www.rajalakshmi.org/downloads/AC/REC-AC-2022-23-ODD-UG.PDF" target="_blank">ODD SEM - 2022-23 - Second, Third & Final Year</a></p>
+    </div>
 </body>
 </html>
